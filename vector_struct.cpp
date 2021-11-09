@@ -5,11 +5,10 @@ using namespace std;
 struct my_int_vector{
     int *elements;
     int count;
-    int total_reads;
-}
+    };
 
 int size(my_int_vector *v){
-    return v->count
+    return v->count;
 }
 
 void write(my_int_vector *v, int index, int value){
@@ -21,10 +20,35 @@ void write(my_int_vector *v, int index, int value){
 }
 
 int read(my_int_vector *v, int index){
-    v->total_reads +=1;
     return v->elements[index];
 }
 
+my_int_vector iota(int n){
+    my_int_vector res = {new int[n], n};
+    for (int i = 0; i < n; i++){
+        write(&res, i, i);
+    }
+    return res;
+}
+
+void destroy(my_int_vector *v){
+    delete []v->elements
+    delete []v;
+}
+
+my_int_vector *create(int size){
+    my_int_vector *res= new my_int_vector[1];
+    res->elements = new int[size];
+    res->count = size;
+    return res;
+}
+
 int main(){
+    int backing[16];
+    my_int_vector vec = {&backing[0],16}; //vec relies on backing
+    write(&vec, 3, 42);
+   
+
+
     return 0;
 }
