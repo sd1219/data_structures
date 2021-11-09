@@ -44,11 +44,5 @@ my_int_vector *create(int size){
 }
 
 int main(){
-    int backing[16];
-    my_int_vector vec = {&backing[0],16}; //vec relies on backing
-    write(&vec, 3, 42);
-   
-
-
-    return 0;
+   return 0;
 }
